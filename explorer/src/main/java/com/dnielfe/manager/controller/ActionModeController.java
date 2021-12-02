@@ -151,6 +151,41 @@ public final class ActionModeController {
                     mode.finish();
                     dialog1.show(mActivity.getFragmentManager(), BrowserActivity.TAG_DIALOG);
                     return true;
+                case R.id.actiondeletefile:
+                    for (int i = 0; i < checkedItemSize; i++) {
+                        final int key = items.keyAt(i);
+                        if (items.get(key)) {
+                            File selectedFile = new File((String) mListView.getItemAtPosition(key));
+                            if (selectedFile.isFile()){
+                                files[++index] = (String) mListView.getItemAtPosition(key);
+                            }
+                        }
+                    }
+                    if (index == -1){
+                        return true;
+                    }
+                    final DialogFragment dialog2 = DeleteFilesDialog.instantiate(files);
+                    mode.finish();
+                    dialog2.show(mActivity.getFragmentManager(), BrowserActivity.TAG_DIALOG);
+                    return true;
+                case R.id.actiondeletedir:
+                    for (int i = 0; i < checkedItemSize; i++) {
+                        final int key = items.keyAt(i);
+                        if (items.get(key)) {
+                            File selectedFile = new File((String) mListView.getItemAtPosition(key));
+                            if (selectedFile.isDirectory()){
+                                files[++index] = (String) mListView.getItemAtPosition(key);
+                            }
+                        }
+                    }
+                    if (index == -1){
+                        return true;
+                    }
+                    final DialogFragment dialog0 = DeleteFilesDialog.instantiate(files);
+                    mode.finish();
+                    dialog0.show(mActivity.getFragmentManager(), BrowserActivity.TAG_DIALOG);
+                    return true;
+
                 case R.id.actionshare:
                     final ArrayList<Uri> uris = new ArrayList<>(mListView.getCheckedItemCount());
                     for (int i = 0; i < checkedItemSize; i++) {
