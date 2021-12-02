@@ -54,5 +54,8 @@
         android:id="@+id/actionall"
         app:showAsAction="never"
         android:title="@string/selectall" />
+    <item
+        android:id="@+id/actioncancelall"
+        android:title="@string/cancelall" />
 
 </menu>
