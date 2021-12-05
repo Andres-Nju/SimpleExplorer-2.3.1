@@ -27,6 +27,7 @@ import com.dnielfe.manager.utils.SimpleUtils;
 import java.io.File;
 import java.util.ArrayList;
 
+
 public final class ActionModeController {
 
     private final MultiChoiceModeListener multiChoiceListener;
